@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Embedded Messaging</title>
+</head>
+<body>
+    <h1>Bienvenido a nuestro Chat</h1>
+    <p>Por favor, interactúa con el chat en la esquina.</p>
+
+    <!-- Embedded Messaging Script -->
+    <script type="text/javascript">
+        function initEmbeddedMessaging() {
+            try {
+                // Configuración del idioma
+                embeddedservice_bootstrap.settings.language = 'es_MX';
+
+                // Inicialización del servicio embebido
+                embeddedservice_bootstrap.init(
+                    '00DDX000000H03p', // Salesforce Org ID
+                    'All_Tech', // Deployment Name
+                    'https://efgmexico--devsandbox.sandbox.my.site.com/ESWAllTech1733365787738', // Experience Cloud Site URL
+                    {
+                        scrt2URL: 'https://efgmexico--devsandbox.sandbox.my.salesforce-scrt.com' // URL segura
+                    }
+                );
+            } catch (err) {
+                console.error('Error al cargar Embedded Messaging:', err);
+            }
+        }
+    </script>
+
+    <!-- Script de bootstrap del servicio -->
+    <script 
+        type="text/javascript" 
+        src="https://efgmexico--devsandbox.sandbox.my.site.com/ESWAllTech1733365787738/assets/js/bootstrap.min.js" 
+        onload="initEmbeddedMessaging()">
+    </script>
+</body>
+</html>
