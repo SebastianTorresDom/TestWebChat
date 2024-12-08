@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
@@ -30,11 +31,18 @@
         }
     </script>
 
-    <!-- Script de bootstrap del servicio -->
-    <script 
-        type="text/javascript" 
-        src="https://efgmexico--devsandbox.sandbox.my.site.com/ESWAllTech1733365787738/assets/js/bootstrap.min.js" 
-        onload="initEmbeddedMessaging()">
+    <!-- Solución: Carga del script con la API de JavaScript -->
+    <script>
+        (function loadEmbeddedMessagingScript() {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://efgmexico--devsandbox.sandbox.my.site.com/ESWAllTech1733365787738/assets/js/bootstrap.min.js';
+            script.onload = initEmbeddedMessaging;
+            script.onerror = function () {
+                console.error('Error al cargar el script de Embedded Messaging.');
+            };
+            document.body.appendChild(script);
+        })();
     </script>
 </body>
 </html>
